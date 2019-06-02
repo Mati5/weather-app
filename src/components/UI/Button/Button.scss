@@ -1,0 +1,44 @@
+@import '../../../scss//index.scss';
+
+.button {
+    background-color: transparent;
+    color: $primary-color;
+    border: em(1px) solid $primary-bg;
+    border-radius: em(6px);
+    padding: em(10px) em(20px);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+    }
+
+    &--primary {
+
+    }
+
+    &--danger {
+        width: 100%;
+        color: #c9302c;
+        border-color: #c9302c;
+        transition: background ease-in-out 0.2s;
+        
+        &:hover {
+            background-color: #c9302c;
+            color: #fff;
+        }
+    }
+
+    &--add {
+        background-color: #007aff;
+        width: em(400px);
+        color: #fff;
+    }
+
+    i {
+        padding-right: em(5px);
+    }
+}

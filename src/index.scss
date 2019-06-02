@@ -1,0 +1,26 @@
+@import 'scss/index';
+@import-normalize;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $primary-font-size;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}

@@ -1,0 +1,36 @@
+@import '../../scss//index.scss';
+
+.city {
+
+    &__title {
+        font-size: em(30px);
+        font-weight: 400;
+        margin: 0;
+    }
+
+    &__content {
+        border-top: em(1px) solid #ddd;
+        border-bottom: em(1px) solid #ddd;
+        padding: em(20px) 0;
+        margin: em(20px) 0;
+    }
+    
+}
+
+.details {
+    @include reset-list;
+    padding: 0 em(25px);
+
+    &__element {
+        display: flex;
+        align-items: flex-start;
+        margin: em(20px) 0;
+        // justify-content: space-between;
+    }
+
+    &__title {
+        width: 20%;
+        font-size: em(14px);
+        margin: 0;
+    }
+}
