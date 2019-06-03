@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     cityList: [],
     selectedCity: null,
-    error: null
+    message: null
 };
 
 const setCityList = (state, action) => {
@@ -34,10 +34,10 @@ const setSelectedCity = (state, action) => {
     }
 }
 
-const fetchAddCityFail = (state, action) => {
+const setActionMessage = (state, action) => {
     return {
         ...state,
-        error: action.payload
+        message: action.payload
     }
 }
 
@@ -47,7 +47,7 @@ const weatherReducer = (state = initialState, action) => {
         case actionTypes.ADD_CITY_SUCCESS: return addCitySuccess(state, action);
         case actionTypes.DELETE_CITY_SUCCESS: return deleteCitySuccess(state, action);
         case actionTypes.SET_SELECTED_CITY: return setSelectedCity(state, action);
-        case actionTypes.FETCH_ADD_CTY_FAIL: return fetchAddCityFail(state, action);
+        case actionTypes.SET_ACTION_MESSAGE: return setActionMessage(state, action);
   
         default:
             return state;

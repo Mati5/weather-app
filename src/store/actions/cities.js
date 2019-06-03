@@ -48,13 +48,15 @@ export const addCity = (cityName) => {
 
                 if(isNotExisted) {
                     countAverageTemp(payload);
-                    dispatch(addCitySuccess(payload))
+                    dispatch(addCitySuccess(payload));
+                    dispatch(setActionMessage({type: 'success', data: {message: 'Dodano miasto do listy pomyślnie.'}}));
                 }
-
-                dispatch(fetchAddCityFail(null));
+                else {
+                    dispatch(setActionMessage({type: 'error', data: {message: 'To miasto jest już dodane!'}}));
+                }
             })
             .catch(error => {
-                dispatch(fetchAddCityFail(error.response.data));
+                dispatch(setActionMessage({type: 'error', data: error.response.data}));
             });
     }
 };
@@ -90,6 +92,7 @@ export const deleteCity = (idCity) => {
         });
 
         dispatch(deleteCitySuccess(updatedCityList));
+        dispatch(setActionMessage({type: 'success', data: {message: 'Usunięto miasto z listy pomyślnie.'}}));
     }
 }
 
@@ -109,9 +112,9 @@ export const selectCity = (cityName) => {
     }
 }
 
-export const fetchAddCityFail = (error) => {
+export const setActionMessage = (message) => {
     return {
-        type: actionTypes.FETCH_ADD_CTY_FAIL,
-        payload: error
+        type: actionTypes.SET_ACTION_MESSAGE,
+        payload: message
     }
 }

@@ -41,20 +41,17 @@ class AddCityForm extends Component {
             formData[formElementIdentifier] = this.state.addCityForm[formElementIdentifier].value
         }
 
-        let isNotExisted = true;
-        for(let key in this.props.cityList) {
-            if(this.props.cityList[key].city.name === formData.name ) {
-              isNotExisted=false;
-           }
-        }  
+        // let isNotExisted = true;
+        // for(let key in this.props.cityList) {
+        //     if(this.props.cityList[key].city.name === formData.name ) {
+        //       isNotExisted=false;
+        //    }
+        // }  
 
-        if(isNotExisted && this.state.formIsValid) {
+        // if(isNotExisted && this.state.formIsValid) {
             this.props.addCity(formData.name);
             this.setState(this.initialState);
-        }
-        else {
-            console.log("City existed");
-        }
+        // }
     }
 
     inputChangeHandler = (event, inputIdentifier) => {

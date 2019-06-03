@@ -2,16 +2,22 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { addCity, deleteCity, selectCity } from '../../store/actions/cities';
+import { addCity, deleteCity, selectCity, setActionMessage } from '../../store/actions/cities';
 
 import './Cities.scss';
 
 import AddCityForm from '../AddCityForm/AddCityForm';
 import Aux from '../../hoc/Auxiliary';
 import Button from '../../components/UI/Button/Button';
-
+import Message from '../../components/UI/Message/Message';
 
 class Cities extends Component {
+    messageTimeout = () => {
+        setTimeout(() => {
+            this.props.setActionMessage(null);
+        }, 4000)
+    }
+
     render() {
         let cityList = this.props.cityList.map((city, index) => (
             <tr 
@@ -47,6 +53,14 @@ class Cities extends Component {
                         </tbody>
                     </table>
                 </div>
+
+
+                {this.props.message ? <Message show={true} type={this.props.message.type}>
+                    {this.props.message.data.message}
+
+                    {this.messageTimeout()}
+
+                </Message> : null}
             </Aux>
         );
     }
@@ -55,14 +69,16 @@ class Cities extends Component {
 const mapStateToProps = state => {
     return {
         cityList: state.weatherReducer.cityList,
-        unitTemp: state.settingsReducer.unitTemp
+        unitTemp: state.settingsReducer.unitTemp,
+        message: state.weatherReducer.message
     };
 };
 
 const mapDispatchToProps = {
     addCity,
     deleteCity,
-    selectCity
+    selectCity,
+    setActionMessage
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities);

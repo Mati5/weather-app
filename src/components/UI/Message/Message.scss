@@ -1,0 +1,35 @@
+@import '../../../scss//index.scss';
+
+.message {
+    background-color: #7fbcec;
+    width: 70%;
+    color: #212121;
+    border-radius: em(8px);
+    // border: em(1px) solid red;
+    padding: em(10px) em(25px);
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    bottom: em(50px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    &--error {
+        background-color: #f8b7bd;
+    }
+
+    &--success {
+        background-color: #b7d8b7;
+    }
+
+    &--info {
+        background-color: #7fbcec;
+    }
+
+    &__icon {
+        font-size: em(20px);
+        font-weight: bold;
+        padding-right: em(10px);
+    }
+}
