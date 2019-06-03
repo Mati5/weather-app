@@ -39,14 +39,14 @@ export const addCity = (cityName) => {
                     list: response.data.list
                 }
 
-                let isExist = true;
+                let isNotExisted = true;
                 for(let i in store.getState().weatherReducer.cityList) {
                     if(store.getState().weatherReducer.cityList[i].city.name === payload.city.name) {
-                        isExist = false;
+                        isNotExisted = false;
                     }
                 }
 
-                if(isExist) {
+                if(isNotExisted) {
                     countAverageTemp(payload);
                     dispatch(addCitySuccess(payload))
                 }
@@ -54,7 +54,6 @@ export const addCity = (cityName) => {
                 dispatch(fetchAddCityFail(null));
             })
             .catch(error => {
-                console.log("error", error);
                 dispatch(fetchAddCityFail(error.response.data));
             });
     }

@@ -16,11 +16,11 @@ class Cities extends Component {
         let cityList = this.props.cityList.map((city, index) => (
             <tr 
                 key={city.city.id}
-                className="cities-table__tr">
-                <td className="cities-table__td">{index}</td>
-                <td className="cities-table__td"><Link to={'/' + city.city.name}>{city.city.name}</Link></td>
-                <td className="cities-table__td">{city.averageTemp}</td>
-                <td className="cities-table__td">
+                className="cities__tr">
+                <td className="cities__td">{index}</td>
+                <td className="cities__td"><Link to={'/' + city.city.name}>{city.city.name}</Link></td>
+                <td className="cities__td">{city.averageTemp}&deg;{this.props.unitTemp}</td>
+                <td className="cities__td">
                     <Button 
                         btnType="danger"
                         clicked={() => this.props.deleteCity(city.city.id)}
@@ -32,19 +32,21 @@ class Cities extends Component {
         return(
             <Aux>
                 <AddCityForm />
-                <table className="cities-table">
-                    <thead>
-                        <tr className="cities-table__tr">
-                            <th className="cities-table__th">#</th>
-                            <th className="cities-table__th">Miasto</th>
-                            <th className="cities-table__th">Średnia progonozowana temeratura</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        {cityList}
-                    </tbody>
-                </table>
+                <div className="cities">
+                    <table className="cities__table">
+                        <thead>
+                            <tr className="cities__tr">
+                                <th className="cities__th">#</th>
+                                <th className="cities__th">Miasto</th>
+                                <th className="cities__th">Średnia progonozowana temeratura</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            {cityList}
+                        </tbody>
+                    </table>
+                </div>
             </Aux>
         );
     }
@@ -52,7 +54,8 @@ class Cities extends Component {
 
 const mapStateToProps = state => {
     return {
-        cityList: state.weatherReducer.cityList
+        cityList: state.weatherReducer.cityList,
+        unitTemp: state.settingsReducer.unitTemp
     };
 };
 

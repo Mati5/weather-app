@@ -1,4 +1,4 @@
-@import '../../scss//index.scss';
+@import '../../scss/index.scss';
 
 .add-form {
     
@@ -6,13 +6,22 @@
 
     &__form {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        
+        @media(min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
     &__input {
         width: 100%;
+        margin-bottom: (10px);
+
+        @media(min-width: 768px) {
+            margin-right: em(25px);
+            margin-bottom: 0;
+        }
     }
 
     &__row {
@@ -22,7 +31,7 @@
     }
 }
 
-.validationCommunicate {
+.validation-message {
     color: #c9302c;
     font-size: em(11px);
     margin: 0;

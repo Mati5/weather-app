@@ -37,7 +37,7 @@ class City extends Component {
                             </li>
                             <li className="details__element">
                                 <h3 className="details__title">Średnia temperatura:</h3>
-                                {this.props.selectedCity.averageTemp}
+                                {this.props.selectedCity.averageTemp}&deg;{this.props.unitTemp}
                             </li>
                         </ul>
                     </div>
@@ -61,7 +61,8 @@ class City extends Component {
 
 const mapStateToProps = state => {
     return {
-        selectedCity: state.weatherReducer.selectedCity
+        selectedCity: state.weatherReducer.selectedCity,
+        unitTemp: state.settingsReducer.unitTemp
     }
 }
 

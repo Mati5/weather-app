@@ -1,9 +1,17 @@
 @import '../../scss//index.scss';
 
-.cities-table {
-    width: 100%;
-    border-collapse: collapse;
+.cities {
+    overflow-x: scroll;
 
+    @media(min-width: 768px) {
+        overflow-x: hidden;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
     &__tr {
         border-top: 1px solid #ebebeb;
     }

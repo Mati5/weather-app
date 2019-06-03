@@ -28,7 +28,7 @@ class AddCityForm extends Component {
             }
         },
         formIsValid: false,
-        validationCommunicate: ''
+        validationMessage: ''
     }
 
     state = this.initialState;
@@ -41,14 +41,14 @@ class AddCityForm extends Component {
             formData[formElementIdentifier] = this.state.addCityForm[formElementIdentifier].value
         }
 
-        let isExisted = true;
+        let isNotExisted = true;
         for(let key in this.props.cityList) {
             if(this.props.cityList[key].city.name === formData.name ) {
-              isExisted=false;
+              isNotExisted=false;
            }
         }  
 
-        if(isExisted && this.state.formIsValid) {
+        if(isNotExisted && this.state.formIsValid) {
             this.props.addCity(formData.name);
             this.setState(this.initialState);
         }
@@ -76,14 +76,14 @@ class AddCityForm extends Component {
 
     checkValidity = (value, rules) => {
         let isValid = true;
-        let communicate = '';
+        let message = '';
 
         if(rules.required) {
             isValid = value.trim() !== '' && isValid;
 
             if(value.trim() === '' && value.length>0) {
-                communicate += 'Podano puste znaki.';
-                this.setState({validationCommunicate: communicate});
+                message += 'Podano puste znaki.';
+                this.setState({validationMessage: message});
             }
         }
 
@@ -91,16 +91,16 @@ class AddCityForm extends Component {
             const re = /^[\s\p{L}]+$/u;
 
             if(!re.test(value) && value.length>0) {
-                communicate += 'Nazwa miasta nie może zawierać cyfr.';
-                this.setState({validationCommunicate: communicate});
+                message += 'Nazwa miasta nie może zawierać cyfr.';
+                this.setState({validationMessage: message});
             }
 
             isValid = re.test(value) && isValid;
         }
 
         if(value.length === 0) {
-            communicate = '';
-            this.setState({validationCommunicate: communicate});
+            message = '';
+            this.setState({validationMessage: message});
         }
 
         return isValid;
@@ -137,17 +137,16 @@ class AddCityForm extends Component {
             </form>
         );
 
-        let validationCommunicate = (
-            <p className="validationCommunicate">{this.state.validationCommunicate}</p>
+        let validationMessage = (
+            <p className="validation-message">{this.state.validationMessage}</p>
         );
 
         return(
             <Aux>
                 <div className="add-form">
                     {form}
-                    {this.state.validationCommunicate.length > 0 ? validationCommunicate : null }
+                    {this.state.validationMessage.length > 0 ? validationMessage : null }
                 </div>
-                {/* { this.props.error ? this.props.error.message : null} */}
             </Aux>
         );
     }
@@ -155,8 +154,7 @@ class AddCityForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        cityList: state.weatherReducer.cityList,
-        error: state.weatherReducer.error
+        cityList: state.weatherReducer.cityList
     };
 };
 

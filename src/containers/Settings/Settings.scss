@@ -9,9 +9,12 @@
     }
 
     &__subtitle {
-        width: 20%;
         font-size: em(14px);
         margin: 0;
+
+        @media(min-width: 768px) {
+            width: 20%;
+        }
     }
 
     &__content {
@@ -21,14 +24,24 @@
         margin: em(20px) 0;
     }
 
+    &__details {
+        padding: em(15px);
+
+        @media(min-width: 768px) {
+            padding: 0;
+        }
+    }
+
     &__list {
         @include reset-list;
         padding: 0 em(25px);
     }
 
     &__element {
-        display: flex;
-        align-items: flex-start;
-        // justify-content: space-between;
+
+        @media(min-width: 768px) {
+            display: flex;
+            align-items: flex-start;
+        }
     }
 }

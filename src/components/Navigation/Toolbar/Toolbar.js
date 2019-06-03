@@ -11,7 +11,7 @@ const toolbar = (props) => (
             <Button 
                 btnType="primary"
                 icon="fa-cog"
-                clicked={() => history.push('/settings')}>Ustawienia</Button>
+                clicked={() => history.location.pathname !== '/settings' ? history.push('/settings') : null}>Ustawienia</Button>
         </div>
     </header>
 );

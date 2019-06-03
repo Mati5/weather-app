@@ -22,15 +22,19 @@
     padding: 0 em(25px);
 
     &__element {
+        font-size: em(14px);
+        margin: em(20px) 0;
         display: flex;
         align-items: flex-start;
-        margin: em(20px) 0;
-        // justify-content: space-between;
     }
 
     &__title {
-        width: 20%;
-        font-size: em(14px);
+        font-size: em(16px);
         margin: 0;
+        padding-right: em(5px);
+
+        @media(min-width: 768px) {
+            width: 20%;
+        }
     }
 }

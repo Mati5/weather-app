@@ -20,7 +20,7 @@ class Settings extends Component {
                         <ul className="settings__list">
                             <li className="settings__element">
                                 <h3 className="settings__subtitle">Jednostka:</h3>
-                                <div>
+                                <div className="settings__details">
                                     <div>
                                         <Input 
                                             id="unit-c"
@@ -29,7 +29,7 @@ class Settings extends Component {
                                             inputValue="C" 
                                             inputName="temp"
                                             changed={() => this.props.changeUnitTemp("C")} />
-                                        <label htmlFor="unit-c">C</label>
+                                        <label htmlFor="unit-c">&deg;C</label>
                                     </div>
                                     <div>
                                         <Input 
@@ -39,7 +39,7 @@ class Settings extends Component {
                                             inputValue="F" 
                                             inputName="temp" 
                                             changed={() => this.props.changeUnitTemp("F")} />
-                                        <label htmlFor="unit-f">F</label>
+                                        <label htmlFor="unit-f">&deg;F</label>
                                     </div>
                                 </div>
                             </li>
@@ -49,7 +49,7 @@ class Settings extends Component {
                 <BottomBar>
                     <Button
                         icon="fa-arrow-circle-left" 
-                        clicked={() => history.push('/')}>Powrót</Button>
+                        clicked={() => history.goBack()}>Powrót</Button>
                 </BottomBar>
             </Aux>
         );

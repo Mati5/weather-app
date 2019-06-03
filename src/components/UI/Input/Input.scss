@@ -4,15 +4,9 @@
     border: em(1px) solid #ddd;
     border-radius: em(8px);
     padding: em(10px);
-    margin-right: em(25px);
-}
 
-.form-row {
-    
-}
-
-
-.invalid {
-    color: #c9302c;
-    border: 1px solid #c9302c;
+    &--invalid {
+        color: #c9302c;
+        border: 1px solid #c9302c;
+    }
 }

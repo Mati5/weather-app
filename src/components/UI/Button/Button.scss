@@ -34,8 +34,12 @@
 
     &--add {
         background-color: #007aff;
-        width: em(400px);
+        width: 100%;
         color: #fff;
+
+        @media(min-width: 768px) {
+            width: em(400px);
+        }
     }
 
     i {

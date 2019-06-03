@@ -6,16 +6,16 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import history from './history';
 
-import { loadState, saveState } from './localStorage/localStorage';
-
-
 import weatherReducer  from './store/reducers/weatherReducer';
 import settingsReducer from './store/reducers/settingsReducer';
-import 'font-awesome/css/font-awesome.min.css';
+import { loadState, saveState } from './localStorage/localStorage';
 
-import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './index.scss';
+
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
