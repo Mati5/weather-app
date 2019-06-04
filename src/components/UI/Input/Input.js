@@ -31,6 +31,7 @@ const input = (props) => {
                                 onChange={props.changed}
                                 value={props.inputValue}
                                 name={props.inputName} />
+        break;
     }
 
     return (

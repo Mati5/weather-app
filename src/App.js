@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
@@ -12,26 +12,23 @@ const asyncCity = asyncComponent(() => {
 
 const asyncSettings = asyncComponent(() => {
   return import('./containers/Settings/Settings');
-})
+});
 
-class App extends Component {
+const app = () => {
+  let routes = (
+    <Switch>
+      <Route path="/settings" component={asyncSettings} />
+      <Route path="/:name" component={asyncCity} />
+      <Route path="/" exact component={Cities} />
+      <Redirect to="/cities" />
+    </Switch>
+  )
 
-  render() {
-    let routes = (
-      <Switch>
-        <Route path="/settings" component={asyncSettings} />
-        <Route path="/:name" component={asyncCity} />
-        <Route path="/" exact component={Cities} />
-        <Redirect to="/cities" />
-      </Switch>
-    )
-
-    return(
-        <Layout>
-            {routes}
-        </Layout>
-    );
-  }
+  return(
+      <Layout>
+          {routes}
+      </Layout>
+  );
 }
 
-export default App;
+export default app;

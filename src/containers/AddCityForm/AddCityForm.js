@@ -8,8 +8,9 @@ import { addCity } from '../../store/actions/cities';
 import Aux from '../../hoc/Auxiliary';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
+import { checkValidity } from '../../shared/utility';
 
-class AddCityForm extends Component {
+export class AddCityForm extends Component {
     initialState = {
         addCityForm: {
             name: {
@@ -21,7 +22,7 @@ class AddCityForm extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    number: false
+                    isNotNumber: true
                 },
                 valid: false,
                 touched: false
@@ -40,26 +41,19 @@ class AddCityForm extends Component {
         for(let formElementIdentifier in this.state.addCityForm) {
             formData[formElementIdentifier] = this.state.addCityForm[formElementIdentifier].value
         }
-
-        // let isNotExisted = true;
-        // for(let key in this.props.cityList) {
-        //     if(this.props.cityList[key].city.name === formData.name ) {
-        //       isNotExisted=false;
-        //    }
-        // }  
-
-        // if(isNotExisted && this.state.formIsValid) {
-            this.props.addCity(formData.name);
-            this.setState(this.initialState);
-        // }
+        
+        this.props.addCity(formData.name);
+        this.setState(this.initialState);
     }
 
     inputChangeHandler = (event, inputIdentifier) => {
         const updatedAddCityForm = { ...this.state.addCityForm };
         const updatedFormElement = { ...updatedAddCityForm[inputIdentifier] }
+        let validity;
 
         updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        validity = checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.valid = validity.isValid;
         updatedFormElement.touched = true;
         updatedAddCityForm[inputIdentifier] = updatedFormElement;
         
@@ -68,39 +62,7 @@ class AddCityForm extends Component {
             formIsValid = updatedAddCityForm[formElementIdentifier].valid && formIsValid;
         }
 
-        this.setState({addCityForm: updatedAddCityForm, formIsValid: formIsValid});
-    }
-
-    checkValidity = (value, rules) => {
-        let isValid = true;
-        let message = '';
-
-        if(rules.required) {
-            isValid = value.trim() !== '' && isValid;
-
-            if(value.trim() === '' && value.length>0) {
-                message += 'Podano puste znaki.';
-                this.setState({validationMessage: message});
-            }
-        }
-
-        if(!rules.number) {
-            const re = /^[\s\p{L}]+$/u;
-
-            if(!re.test(value) && value.length>0) {
-                message += 'Nazwa miasta nie może zawierać cyfr.';
-                this.setState({validationMessage: message});
-            }
-
-            isValid = re.test(value) && isValid;
-        }
-
-        if(value.length === 0) {
-            message = '';
-            this.setState({validationMessage: message});
-        }
-
-        return isValid;
+        this.setState({addCityForm: updatedAddCityForm, formIsValid: formIsValid, validationMessage: validity.message});
     }
 
     render() {

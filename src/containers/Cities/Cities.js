@@ -11,11 +11,11 @@ import Aux from '../../hoc/Auxiliary';
 import Button from '../../components/UI/Button/Button';
 import Message from '../../components/UI/Message/Message';
 
-class Cities extends Component {
+export class Cities extends Component {
     messageTimeout = () => {
-        setTimeout(() => {
+       setTimeout(() => {
             this.props.setActionMessage(null);
-        }, 4000)
+        }, 4000);
     }
 
     render() {
@@ -37,23 +37,24 @@ class Cities extends Component {
 
         return(
             <Aux>
-                <AddCityForm />
-                <div className="cities">
-                    <table className="cities__table">
-                        <thead>
-                            <tr className="cities__tr">
-                                <th className="cities__th">#</th>
-                                <th className="cities__th">Miasto</th>
-                                <th className="cities__th">Średnia progonozowana temeratura</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody> 
-                            {cityList}
-                        </tbody>
-                    </table>
+                <div className="container">
+                    <AddCityForm />
+                    <div className="cities">
+                        <table className="cities__table">
+                            <thead>
+                                <tr className="cities__tr">
+                                    <th className="cities__th">#</th>
+                                    <th className="cities__th">Miasto</th>
+                                    <th className="cities__th">Średnia progonozowana temeratura</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                {cityList}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
 
                 {this.props.message ? <Message show={true} type={this.props.message.type}>
                     {this.props.message.data.message}

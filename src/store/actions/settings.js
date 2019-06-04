@@ -1,5 +1,7 @@
 import * as actionTypes from './actionTypes';
-import store from '../../index';
+import store from '../store';
+
+import { convertCelsiusToFahrenheit, convertFahrenheitToCelsius } from '../../shared/utility';
 
 export const changeUnitTempSuccess = (unitTemp) => {
     return {
@@ -22,13 +24,12 @@ export const changeUnitTemp = (unitTemp) => {
         switch (unitTemp) {
             case 'C':
                 for (let city of cityList) {
-                    city.averageTemp = ((city.averageTemp - 32) / 1.8).toFixed(1);
+                    city.averageTemp = convertFahrenheitToCelsius(city.averageTemp);
                 }
                 break;
             case 'F':
-
                 for (let city of cityList) {
-                    city.averageTemp = ((city.averageTemp * 1.8) + 32).toFixed(1);
+                    city.averageTemp = convertCelsiusToFahrenheit(city.averageTemp);
                 }
                 break;
             default:
@@ -36,7 +37,6 @@ export const changeUnitTemp = (unitTemp) => {
         }
 
         dispatch(changeUnitTempSuccess(unitTemp));
-        dispatch(setCityList(cityList))
-
+        dispatch(setCityList(cityList));
     }
 }

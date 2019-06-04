@@ -5,9 +5,16 @@
     width: 100%;
     padding: em(5px);
     
-    position: fixed;
-    top: 0;
-    left: 0;
+    &--top {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    &--bottom {
+        background-color: transparent;
+        text-align: right;
+    }
 
     &__container {
         width: 80%;

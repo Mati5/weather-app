@@ -1,7 +1,8 @@
 import axios from 'axios';
-import store from '../../index';
+import store from '../store';
 
 import * as actionTypes from './actionTypes';
+import { countAverageTemp } from '../../shared/utility';
 
 
 export const setCityList = (cityList) => {
@@ -52,7 +53,7 @@ export const addCity = (cityName) => {
                     dispatch(setActionMessage({type: 'success', data: {message: 'Dodano miasto do listy pomyślnie.'}}));
                 }
                 else {
-                    dispatch(setActionMessage({type: 'error', data: {message: 'To miasto jest już dodane!'}}));
+                    dispatch(setActionMessage({type: 'error', data: {message: 'To miasto jest już dodane do listy!'}}));
                 }
             })
             .catch(error => {
@@ -60,22 +61,6 @@ export const addCity = (cityName) => {
             });
     }
 };
-
-export const countAverageTemp = (weatherList) => {
-    let sum = 0;
-    let average = 0;
-    let quantity = 0;
-
-    for(let partTemp of weatherList.list) {
-        sum += partTemp.main.temp;
-        quantity++; 
-    }
-
-    average = (sum/quantity).toFixed(1);
-    weatherList.averageTemp = average;
-
-    return weatherList;
-}
 
 export const deleteCitySuccess = (updatedCityList) => {
     return {

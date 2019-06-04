@@ -8,9 +8,9 @@ import { selectCity, setSelectedCity } from '../../store/actions/cities';
 import './City.scss';
 import Aux from '../../hoc/Auxiliary';
 import Button from '../../components/UI/Button/Button';
-import BottomBar from '../../components/Navigation/Bottombar/Bottombar';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
-class City extends Component {
+export class City extends Component {
     componentDidMount() {
         this.props.selectCity(this.props.match.params.name); 
     }
@@ -47,13 +47,15 @@ class City extends Component {
 
         return (
             <Aux>
-                {city}
-            
-                <BottomBar>
+                <div className="container">
+                    {city}
+                </div>
+                
+                <Toolbar type="bottom">
                     <Button
                         icon="fa-arrow-circle-left" 
                         clicked={() => history.push('/')}>Powrót</Button>
-                </BottomBar>
+                </Toolbar>
             </Aux>
         );
     }
