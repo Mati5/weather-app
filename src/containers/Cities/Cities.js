@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { addCity, deleteCity, selectCity, setActionMessage } from '../../store/actions/cities';
+import { addCity, deleteCity, selectCity, setActionMessage } from '../../store/Cities/actions';
 import AddCityForm from '../AddCityForm/AddCityForm';
 import Button from '../../components/UI/Button/Button';
 import Message from '../../components/UI/Message/Message';
@@ -63,9 +63,9 @@ export class Cities extends Component {
 }
 
 const mapStateToProps = state => ({
-    cityList: state.weatherReducer.cityList,
+    cityList: state.citiesReducer.cityList,
     unitTemp: state.settingsReducer.unitTemp,
-    message: state.weatherReducer.message
+    message: state.citiesReducer.message
 });
 
 const mapDispatchToProps = {
@@ -74,5 +74,6 @@ const mapDispatchToProps = {
     selectCity,
     setActionMessage
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities);

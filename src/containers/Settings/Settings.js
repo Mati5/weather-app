@@ -5,7 +5,7 @@ import history from '../../history';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
-import { changeUnitTemp } from '../../store/actions/settings';
+import { changeUnitTemp } from '../../store/Settings/actions';
 import './Settings.scss';
 
 class Settings extends Component {

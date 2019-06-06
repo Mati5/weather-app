@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import store from '../../store/store';
+import store from '../../store/index';
 import Settings from './Settings';
 import Input from '../../components/UI/Input/Input';
 

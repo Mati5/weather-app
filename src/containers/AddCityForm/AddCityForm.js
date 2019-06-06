@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addCity } from '../../store/actions/cities';
+import { addCity } from '../../store/Cities/actions';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import { checkValidity } from '../../shared/utility';
@@ -107,7 +107,7 @@ export class AddCityForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    cityList: state.weatherReducer.cityList
+    cityList: state.citiesReducer.cityList
 });
 
 const mapDispatchToProps = {

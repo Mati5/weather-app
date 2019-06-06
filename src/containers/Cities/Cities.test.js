@@ -3,7 +3,7 @@ import { BrowserRouter as Router  } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
-import store from '../../store/store';
+import store from '../../store/index';
 import { Cities } from './Cities';
 
 describe('<City />', () => {

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import history from '../../history';
-import { selectCity, setSelectedCity } from '../../store/actions/cities';
+import { selectCity, setSelectedCity } from '../../store/Cities/actions';
 import Button from '../../components/UI/Button/Button';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import './City.scss';

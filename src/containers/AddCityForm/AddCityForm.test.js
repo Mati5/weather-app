@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from "react-redux";
 import { mount } from 'enzyme';
-import store from '../../store/store';
+import store from '../../store/index';
 
 import {AddCityForm} from './AddCityForm';
 
