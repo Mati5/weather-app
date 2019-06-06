@@ -23,7 +23,7 @@ export class Cities extends Component {
             <tr 
                 key={city.city.id}
                 className="cities__tr">
-                <td className="cities__td">{index}</td>
+                <td className="cities__td">{index+1}</td>
                 <td className="cities__td"><Link to={'/' + city.city.name}>{city.city.name}</Link></td>
                 <td className="cities__td">{city.averageTemp}&deg;{this.props.unitTemp}</td>
                 <td className="cities__td">

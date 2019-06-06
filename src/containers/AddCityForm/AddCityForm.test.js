@@ -1,12 +1,9 @@
 import React from 'react';
 import { Provider } from "react-redux";
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import store from '../../store/store';
 
 import {AddCityForm} from './AddCityForm';
-
-configure({adapter: new Adapter()});
 
 describe('<AddCityForm />', () => {
     let wrapper;
