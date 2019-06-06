@@ -1,7 +1,8 @@
 import React from 'react';
+
 import './Toolbar.scss';
 
-const toolbar = (props) => (
+const Toolbar = (props) => (
     <div className={['app-toolbar', 'app-toolbar--' + props.type].join(' ')}>
         <div className="app-toolbar__container">
             {props.children}
@@ -9,4 +10,4 @@ const toolbar = (props) => (
     </div>
 );
 
-export default toolbar;
+export default Toolbar;

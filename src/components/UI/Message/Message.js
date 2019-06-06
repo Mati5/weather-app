@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Message.scss';
 
-const message = (props) => {
+const Message = (props) => {
     let message = '';
     let icon = '';
     let classType;
@@ -21,7 +21,7 @@ const message = (props) => {
         default:
             icon = '';
             message = '';
-            classType = 'default'
+            classType = 'default';
     }
 
     return (
@@ -34,4 +34,4 @@ const message = (props) => {
     );
 }
 
-export default message;
+export default Message;

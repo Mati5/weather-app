@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Button.scss';
 
-const button = (props) => (
+const Button = (props) => (
     <button 
         className={['button', 'button--' + props.btnType].join(' ')}
         onClick={props.clicked}
@@ -11,4 +11,4 @@ const button = (props) => (
     </button>
 );
 
-export default button;
+export default Button;

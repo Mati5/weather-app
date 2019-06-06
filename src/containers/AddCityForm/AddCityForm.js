@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './AddCityForm.scss';
-
 import { addCity } from '../../store/actions/cities';
-
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import { checkValidity } from '../../shared/utility';
+import './AddCityForm.scss';
 
 export class AddCityForm extends Component {
     initialState = {
@@ -108,14 +106,12 @@ export class AddCityForm extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        cityList: state.weatherReducer.cityList
-    };
-};
+const mapStateToProps = state => ({
+    cityList: state.weatherReducer.cityList
+});
 
 const mapDispatchToProps = {
     addCity
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddCityForm);

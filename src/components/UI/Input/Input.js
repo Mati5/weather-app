@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import './Input.scss';
 
-const input = (props) => {
+const Input = (props) => {
     let inputElement = null;
     let inputClasses = ['input', props.class];
 
@@ -40,4 +40,4 @@ const input = (props) => {
     );
 }
 
-export default input;
+export default Input;

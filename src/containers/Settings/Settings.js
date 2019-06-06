@@ -2,12 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import history from '../../history';
-
-import './Settings.scss';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
-import { changeUnitTemp } from '../../store/actions/settings';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import { changeUnitTemp } from '../../store/actions/settings';
+import './Settings.scss';
 
 class Settings extends Component {
     render() {
@@ -57,14 +56,12 @@ class Settings extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        unitTemp: state.settingsReducer.unitTemp
-    }
-}
+const mapStateToProps = state => ({
+    unitTemp: state.settingsReducer.unitTemp
+});
 
 const mapDispatchToProps = {
     changeUnitTemp
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

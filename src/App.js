@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
-
 import Layout from './hoc/Layout/Layout';
 import Cities from './containers/Cities/Cities';
 
@@ -14,15 +13,15 @@ const asyncSettings = asyncComponent(() => {
   return import('./containers/Settings/Settings');
 });
 
-const app = () => {
-  let routes = (
+const App = () => {
+  const routes = (
     <Switch>
       <Route path="/settings" component={asyncSettings} />
       <Route path="/:name" component={asyncCity} />
       <Route path="/" exact component={Cities} />
       <Redirect to="/cities" />
     </Switch>
-  )
+  );
 
   return(
       <Layout>
@@ -31,4 +30,4 @@ const app = () => {
   );
 }
 
-export default app;
+export default App;

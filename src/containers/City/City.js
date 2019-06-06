@@ -2,12 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import history from '../../history';
-
 import { selectCity, setSelectedCity } from '../../store/actions/cities';
-
-import './City.scss';
 import Button from '../../components/UI/Button/Button';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import './City.scss';
 
 export class City extends Component {
     componentDidMount() {
@@ -20,6 +18,7 @@ export class City extends Component {
 
     render() {
         let city = <p>Nie ma takiego miasta na liście</p>
+
         if(this.props.selectedCity) {
             city = (
                 <div className="city">  
@@ -49,7 +48,6 @@ export class City extends Component {
                 <div className="container">
                     {city}
                 </div>
-                
                 <Toolbar type="bottom">
                     <Button
                         icon="fa-arrow-circle-left" 
@@ -60,16 +58,14 @@ export class City extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        selectedCity: state.weatherReducer.selectedCity,
-        unitTemp: state.settingsReducer.unitTemp
-    }
-}
+const mapStateToProps = state => ({
+    selectedCity: state.weatherReducer.selectedCity,
+    unitTemp: state.settingsReducer.unitTemp
+});
 
 const mapDispatchToProps = {
     selectCity,
     setSelectedCity
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(City);
