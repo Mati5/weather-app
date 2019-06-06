@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import history from '../../history';
 
-import Aux from '../../hoc/Auxiliary';
 import './Settings.scss';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
@@ -13,7 +12,7 @@ import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 class Settings extends Component {
     render() {
         return(
-            <Aux>
+            <Fragment>
                 <div className="settings">
                     <div className="container">
                         <h2 className="settings__title">Ustawienia</h2>
@@ -53,7 +52,7 @@ class Settings extends Component {
                         icon="fa-arrow-circle-left" 
                         clicked={() => history.goBack()}>Powrót</Button>
                 </Toolbar>
-            </Aux>
+            </Fragment>
         );
     }
 }

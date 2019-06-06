@@ -5,7 +5,6 @@ import './AddCityForm.scss';
 
 import { addCity } from '../../store/actions/cities';
 
-import Aux from '../../hoc/Auxiliary';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import { checkValidity } from '../../shared/utility';
@@ -101,12 +100,10 @@ export class AddCityForm extends Component {
         );
 
         return(
-            <Aux>
-                <div className="add-form">
-                    {form}
-                    {this.state.validationMessage.length > 0 ? validationMessage : null }
-                </div>
-            </Aux>
+            <div className="add-form">
+                {form}
+                {this.state.validationMessage.length > 0 ? validationMessage : null }
+            </div>
         );
     }
 }

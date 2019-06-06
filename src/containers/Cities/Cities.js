@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -7,7 +7,6 @@ import { addCity, deleteCity, selectCity, setActionMessage } from '../../store/a
 import './Cities.scss';
 
 import AddCityForm from '../AddCityForm/AddCityForm';
-import Aux from '../../hoc/Auxiliary';
 import Button from '../../components/UI/Button/Button';
 import Message from '../../components/UI/Message/Message';
 
@@ -36,7 +35,7 @@ export class Cities extends Component {
         ));
 
         return(
-            <Aux>
+            <Fragment>
                 <div className="container">
                     <AddCityForm />
                     <div className="cities">
@@ -62,7 +61,7 @@ export class Cities extends Component {
                     {this.messageTimeout()}
 
                 </Message> : null}
-            </Aux>
+            </Fragment>
         );
     }
 }

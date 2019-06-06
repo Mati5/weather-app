@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import history from '../../history';
@@ -6,7 +6,6 @@ import history from '../../history';
 import { selectCity, setSelectedCity } from '../../store/actions/cities';
 
 import './City.scss';
-import Aux from '../../hoc/Auxiliary';
 import Button from '../../components/UI/Button/Button';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
@@ -46,7 +45,7 @@ export class City extends Component {
         }
 
         return (
-            <Aux>
+            <Fragment>
                 <div className="container">
                     {city}
                 </div>
@@ -56,7 +55,7 @@ export class City extends Component {
                         icon="fa-arrow-circle-left" 
                         clicked={() => history.push('/')}>Powrót</Button>
                 </Toolbar>
-            </Aux>
+            </Fragment>
         );
     }
 }

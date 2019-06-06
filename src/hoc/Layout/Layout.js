@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import history from '../../history';
 import './Layout.scss';
-import Aux from '../Auxiliary';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Button from '../../components/UI/Button/Button';
 
@@ -10,7 +9,7 @@ class Layout extends Component {
     
     render() {
         return(
-            <Aux>
+            <Fragment>
                 <Toolbar type="top">
                     <Button 
                     btnType="primary"
@@ -20,7 +19,7 @@ class Layout extends Component {
                 <main className="app-content">
                     {this.props.children}
                 </main>
-            </Aux>
+            </Fragment>
         );
     }
 }

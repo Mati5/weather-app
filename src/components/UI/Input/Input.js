@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import './Input.scss';
-import Aux from '../../../hoc/Auxiliary';
 
 const input = (props) => {
     let inputElement = null;
@@ -35,9 +34,9 @@ const input = (props) => {
     }
 
     return (
-        <Aux>
+        <Fragment>
             {inputElement}
-        </Aux>
+        </Fragment>
     );
 }
 
