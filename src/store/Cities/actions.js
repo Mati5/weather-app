@@ -76,8 +76,8 @@ export const setSelectedCity = (selectedCity) => ({
 });
 
 export const selectCity = (cityName) => dispatch => {
-    const index = store.getState().weatherReducer.cityList.findIndex(element => element.city.name === cityName);
-    const selectedCity = store.getState().weatherReducer.cityList[index];
+    const index = store.getState().citiesReducer.cityList.findIndex(element => element.city.name === cityName);
+    const selectedCity = store.getState().citiesReducer.cityList[index];
 
     dispatch(setSelectedCity(selectedCity));
 };

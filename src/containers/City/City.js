@@ -59,7 +59,7 @@ export class City extends Component {
 }
 
 const mapStateToProps = state => ({
-    selectedCity: state.weatherReducer.selectedCity,
+    selectedCity: state.citiesReducer.selectedCity,
     unitTemp: state.settingsReducer.unitTemp
 });
 

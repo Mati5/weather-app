@@ -12,7 +12,6 @@ const store = createStore(rootReducer, persistedState, composeEnhancers(
     applyMiddleware(thunk)
 ));
 
-
 store.subscribe(() => {
     saveState(store.getState());
 });
