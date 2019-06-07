@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router  } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import store from '../../store/index';
 import { Cities } from './Cities';
@@ -29,7 +29,7 @@ describe('<City />', () => {
       })
 
     it('Should display cities list', () => {
-        const wrapper = mount(<Provider store={store}><Router><Cities {...props} /></Router></Provider>);
+        const wrapper = shallow(<Cities {...props} />);
 
        expect(wrapper.find('table')).toHaveLength(1);
        expect(wrapper.find('tr')).toHaveLength(2);

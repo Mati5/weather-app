@@ -1,8 +1,6 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import store from '../../store/index';
 import { City } from './City';
 
 describe('<City />', () => {
@@ -24,7 +22,7 @@ describe('<City />', () => {
       })
 
     it('Should display selected city when received selectedCity', () => {
-        const wrapper = mount(<Provider store={store}><City selectCity={() => {}} {...props} /></Provider>);
+        const wrapper = shallow(<City  selectedCity={props.selectedCity} />);
 
         expect(wrapper.find('h2.city__title').text()).toEqual('Rzeszów');
         expect(wrapper.find('li.details__element')).toHaveLength(3);
@@ -34,7 +32,7 @@ describe('<City />', () => {
     });
 
     it('Should display city not found when not received selectedCity', () => {
-        const wrapper = mount(<Provider store={store}><City selectCity={() => {}} {...props} selectedCity={null} /></Provider>);
+        const wrapper = shallow(<City selectCity={() => {}} {...props} selectedCity={null} />);
             expect(wrapper.find('p').text()).toEqual('Nie ma takiego miasta na liście');
     });
 });
