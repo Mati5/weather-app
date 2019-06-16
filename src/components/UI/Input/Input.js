@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import './Input.scss';
 
@@ -34,9 +34,9 @@ const Input = (props) => {
     }
 
     return (
-        <Fragment>
+        <React.Fragment>
             {inputElement}
-        </Fragment>
+        </React.Fragment>
     );
 }
 

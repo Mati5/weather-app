@@ -16,7 +16,7 @@ export const checkValidity = (value, rules) => {
         const pattern = /^[\s\p{L}]+$/u;
 
         if(!pattern.test(value) && value.length>0) {
-            validationMessage.message += 'Nazwa miasta nie może zawierać cyfr.';
+            validationMessage.message += 'Nazwa miasta może zawierać tylko litery.';
         }
 
         validationMessage.isValid = pattern.test(value) && validationMessage.isValid;

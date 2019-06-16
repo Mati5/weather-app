@@ -51,7 +51,9 @@ export const addCity = (cityName) => dispatch => {
             }
         })
         .catch(error => {
-            dispatch(setActionMessage({type: 'error', data: error.response.data}));
+            if(error.response) {
+                dispatch(setActionMessage({type: 'error', data: error.response.data}));
+            }
         });
 };
 
