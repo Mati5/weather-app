@@ -52,7 +52,7 @@ const Cities = ({ deleteCity, setActionMessage, cityList, unitTemp, message}) =>
                 </div>
             </div>
 
-            {message ? <Message show={true} type={message.type}>
+            {message ? <Message type={message.type}>
                 {message.data.message}
                 {messageTimeout()}
             </Message> : null}

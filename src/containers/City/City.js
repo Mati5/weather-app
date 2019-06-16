@@ -14,7 +14,7 @@ const City = ({selectCity, setSelectedCity, selectedCity, unitTemp, match}) => {
         return () => {
             setSelectedCity(null);
         };
-      }, [selectCity, setSelectedCity]);
+      }, [selectCity, setSelectedCity, match]);
 
     let city = <p>Nie ma takiego miasta na liście</p>;
 
